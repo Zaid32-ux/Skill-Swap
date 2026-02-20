@@ -17,18 +17,18 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log("🔌 User connected:", socket.id);
 
-  // ✅ user setup
+  // user setup
   socket.on("setup", (userData) => {
     socket.userId = userData._id;
     socket.join(userData._id);
 
-    console.log("✅ User setup:", userData.username);
+    console.log("User setup:", userData.username);
     socket.emit("connected");
   });
 
-  // ✅ join chat room
+  // join chat room
   socket.on("join chat", (room) => {
     socket.join(room);
-    console.log("📦 Joined chat:", room);
+    console.log("Joined chat:", room);
   });
 });
